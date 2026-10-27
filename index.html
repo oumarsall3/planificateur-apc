@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Planificateur APC</title>
+<meta name="description" content="Planifier en approche par compétences : le module de l'enseignant, l'année de chaque classe, l'emploi du temps de chaque semaine sous contraintes de formateurs et d'espaces.">
+<style>
+  :root { --bleu: #164F9E; --marine: #123674; --or: #E4BB38; --texte: #1b2733; --doux: #5b6b80; --fond: #ffffff; --bord: #e2e8f0; --gris: #f6f8fb; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--texte); background: var(--fond); line-height: 1.6; }
+  .bandeau { background: linear-gradient(105deg, #0f2d61 0%, var(--marine) 45%, var(--bleu) 100%); color: #fff; padding: 3.5rem 1.5rem 3rem; position: relative; overflow: hidden; }
+  .bandeau::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: linear-gradient(90deg, var(--or) 0%, #FFD966 45%, transparent 100%); }
+  .dedans { max-width: 940px; margin: 0 auto; }
+  .surtitre { margin: 0 0 .4rem; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: #FFD966; }
+  h1 { margin: 0 0 .8rem; font-size: 2.3rem; line-height: 1.15; font-weight: 700; }
+  .chapo { margin: 0; font-size: 1.08rem; opacity: .93; max-width: 42rem; }
+  main { max-width: 940px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  section { padding: 2.6rem 0 .6rem; }
+  h2 { font-size: 1.4rem; color: var(--marine); margin: 0 0 1rem; padding-bottom: .5rem; border-bottom: 2px solid var(--or); display: inline-block; }
+  h3 { font-size: 1.05rem; color: var(--marine); margin: 1.6rem 0 .5rem; }
+  p { margin: 0 0 1rem; }
+  .encart { background: var(--gris); border-left: 3px solid var(--bleu); padding: 1.1rem 1.3rem; border-radius: 0 10px 10px 0; margin: 1.4rem 0; }
+  .encart p:last-child { margin-bottom: 0; }
+  figure { margin: 1.8rem 0; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--bord); border-radius: 12px; box-shadow: 0 2px 14px rgba(18, 54, 116, .09); }
+  figcaption { margin-top: .6rem; font-size: .85rem; color: var(--doux); text-align: center; }
+  .deux { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+  .deux figure { margin: 1rem 0; }
+  .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .carte { border: 1px solid var(--bord); border-radius: 12px; padding: 1.1rem 1.2rem; }
+  .carte .n { font-size: 1.9rem; font-weight: 700; color: var(--marine); line-height: 1; }
+  .carte .l { font-size: .87rem; color: var(--doux); margin-top: .4rem; display: block; }
+  table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .93rem; }
+  th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--bord); vertical-align: top; }
+  th { color: var(--marine); font-weight: 600; }
+  .pied { border-top: 1px solid var(--bord); margin-top: 2.5rem; padding-top: 1.4rem; font-size: .85rem; color: var(--doux); }
+  .avert { background: #fff8e6; border: 1px solid #f0d999; border-radius: 10px; padding: 1rem 1.2rem; font-size: .9rem; margin: 1.6rem 0; }
+  @media (max-width: 640px) { h1 { font-size: 1.7rem; } .bandeau { padding: 2.4rem 1.2rem 2rem; } .deux { grid-template-columns: 1fr; } table { font-size: .86rem; } }
+</style>
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="dedans">
+    <p class="surtitre">Étude de cas en ingénierie pédagogique et numérique</p>
+    <h1>Planifier en approche par compétences, du référentiel à l'emploi du temps</h1>
+    <p class="chapo">Une application conçue pour les établissements de formation professionnelle et technique du Sénégal. L'enseignant y planifie son module, l'administration y planifie l'année de chaque classe, puis chaque semaine devient un emploi du temps qui respecte les formateurs, les salles et les ateliers.</p>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <h2>Le problème</h2>
+  <p>Les référentiels de formation disent tout de ce qu'il faut enseigner : des modules, des éléments de compétence, des objectifs spécifiques avec leurs durées. Les guides d'organisation du ministère prescrivent même l'outil de planification : un chronogramme des semaines, dont découlent les emplois du temps des formateurs. Sur le terrain, pourtant, la planification se fait souvent sur un tableur ou sur papier, chaque formateur élabore son plan de cours sans le soumettre à personne ; l'emploi du temps se bricole semaine après semaine avec trop de classes pour trop peu de salles, des ateliers partagés et des vacataires qui n'ont que quelques jours.</p>
+
+  <h3>Trois exigences</h3>
+  <p><strong>Partir du référentiel.</strong> Une planification qui ne descend pas des modules et de leurs durées n'est qu'un calendrier.</p>
+  <p><strong>Tenir compte du réel.</strong> Un emploi du temps n'a de valeur que s'il respecte les indisponibilités des formateurs, la capacité des ateliers et les jours en entreprise des classes duales.</p>
+  <p><strong>Garder la trace.</strong> Une planification diffusée engage l'établissement : elle ne doit plus bouger en silence.</p>
+</section>
+
+<section>
+  <h2>Le principe retenu</h2>
+  <div class="encart">
+    <p><strong>Un référentiel, deux publics, une chaîne.</strong> L'administration arrête l'année de chaque classe. L'enseignant décline son module dans les heures qu'on lui a réservées. L'emploi du temps de la semaine naît des deux, sous contraintes, puis se corrige à la main. Chaque document suit le même cycle : brouillon, soumis, validé, diffusé, archivé.</p>
+  </div>
+  <p>L'application reprend le vocabulaire et les outils des documents nationaux : la liste des modules avec leur quota horaire, le chronogramme à 36 semaines où compétences particulières et générales courent en parallèle, les 36 à 40 heures hebdomadaires, la capacité de 24 apprenants par salle. Elle y ajoute ce que les guides prescrivent sans l'outiller : la déclinaison en emploi du temps et le suivi des versions.</p>
+</section>
+
+<section>
+  <h2>Le référentiel</h2>
+  <figure>
+    <img src="images/referentiel.png" alt="Un référentiel de formation lu module par module : éléments de compétence, objectifs spécifiques, durées et lieux">
+    <figcaption>Un référentiel national importé : modules, éléments de compétence et objectifs spécifiques avec leurs durées et leur lieu, salle ou atelier.</figcaption>
+  </figure>
+  <p>Les référentiels s'importent depuis le corpus documentaire de la Direction ou se saisissent. Chaque objectif spécifique porte sa durée et son lieu : c'est ce qui permet, plus loin, de réserver un atelier plutôt qu'une salle.</p>
+</section>
+
+<section>
+  <h2>L'année d'une classe</h2>
+  <figure>
+    <img src="images/chronogramme.png" alt="Le chronogramme annuel : un module par ligne, les semaines en colonnes, les heures hebdomadaires et les totaux contrôlés">
+    <figcaption>Le chronogramme annuel d'une classe. Les semaines de vacances et d'examens sont grisées, le séjour en entreprise se distingue, les totaux hebdomadaires signalent les semaines trop chargées ou trop légères.</figcaption>
+  </figure>
+  <p>L'administration crée une planification par classe. Une proposition automatique répartit les modules de l'année : les compétences particulières et générales en parallèle, les modules dans l'ordre du logigramme, le séjour en entreprise en fin d'année. Chaque ligne se corrige ensuite : formateur, lieu, heures par semaine, semaines de début et de fin. Le quota de chaque module et le total de chaque semaine sont contrôlés en continu. Trois vues : l'année, le mois, la semaine.</p>
+</section>
+
+<section>
+  <h2>Le module de l'enseignant</h2>
+  <figure>
+    <img src="images/planification_module.png" alt="La planification de module : heures planifiées contre quota, semaines réservées par l'annuelle, couverture des éléments de compétence, séances">
+    <figcaption>La planification de module : les heures réservées par l'annuelle, la couverture de chaque élément de compétence, les séances semaine par semaine.</figcaption>
+  </figure>
+  <p>L'enseignant choisit sa classe et son module. L'application lui propose des séances à partir des objectifs spécifiques et de leurs durées, dans les semaines que l'annuelle lui réserve. Il les ajuste : activité, type de séance, durée, lieu, ressources, évaluation. Il voit l'écart entre ce qu'il a planifié et le quota du module, ainsi que toute semaine où il déborde. Il soumet ensuite sa planification, qui est validée puis diffusée.</p>
+</section>
+
+<section>
+  <h2>La semaine</h2>
+  <figure>
+    <img src="images/emploi_du_temps.png" alt="L'emploi du temps d'une classe pour une semaine : séances par jour et par heure, avec module, formateur et espace">
+    <figcaption>L'emploi du temps d'une classe. Les séances d'atelier et de salle se distinguent ; la pause et les jours fériés sont hachurés.</figcaption>
+  </figure>
+  <table>
+    <tr><th>Contrainte respectée</th><th>D'où elle vient</th></tr>
+    <tr><td>jours ouvrés, jours fériés, plage horaire, pause</td><td>le calendrier de l'établissement</td></tr>
+    <tr><td>charge journalière maximale de la classe</td><td>les heures par jour fixées par l'établissement</td></tr>
+    <tr><td>indisponibilités et charge maximale de chaque formateur</td><td>les vacataires n'ont que quelques jours</td></tr>
+    <tr><td>type d'espace requis et capacité</td><td>un atelier de 16 postes n'accueille pas 24 apprenants sans qu'on le sache</td></tr>
+    <tr><td>jours et semaines en entreprise des classes duales</td><td>le parcours dualisé</td></tr>
+  </table>
+  <p>La génération place d'abord les formateurs les plus contraints, puis les ateliers, puis les blocs les plus longs. Elle s'arrête au premier créneau qui respecte tout ; ce qu'elle ne sait pas placer, elle le liste avec sa raison. La direction corrige ensuite à la main, verrouille ce qui doit rester, copie la semaine type vers les suivantes, puis valide et diffuse.</p>
+  <figure>
+    <img src="images/emploi_du_temps_formateur.png" alt="La même semaine vue par un formateur : ses classes, ses modules, ses espaces et sa charge">
+    <figcaption>La même semaine vue par un formateur, avec sa charge placée et sa charge maximale.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>La vérification</h2>
+  <div class="grille">
+    <div class="carte"><span class="n">2</span><span class="l">référentiels nationaux importés : 30 modules, 85 éléments de compétence, 281 objectifs</span></div>
+    <div class="carte"><span class="n">41 / 43</span><span class="l">séances placées sur la première semaine de l'établissement de démonstration, les 2 autres signalées avec leur cause</span></div>
+    <div class="carte"><span class="n">5</span><span class="l">états du cycle de vie éprouvés, avec historique des versions</span></div>
+    <div class="carte"><span class="n">0</span><span class="l">connexion requise : tout se passe sur le poste</span></div>
+  </div>
+  <p>L'application se diffuse sous la forme d'un programme Windows qui s'installe sans droits d'administrateur, ainsi que d'une édition macOS. Elle fait partie des <a href="https://oumarsall3.github.io/outils-dcip/" style="color: var(--bleu);">Outils DCIP</a>, le portail unique des applications de la Direction.</p>
+</section>
+
+<section>
+  <h2>Ce que ce travail ne montre pas</h2>
+  <div class="avert">
+    <p><strong>Aucun code source, aucun installateur, aucune donnée réelle.</strong> Les captures proviennent d'un établissement de démonstration : les classes, les formateurs et les plannings y sont inventés. Toute ressemblance de nom avec une personne réelle serait fortuite.</p>
+    <p>Ce qui est présenté est la démarche : comment outiller la planification en approche par compétences sans retirer à la direction des études ni aux enseignants ce qui leur revient.</p>
+  </div>
+</section>
+
+<div class="pied">
+  <p>Application conçue au sein de la Direction des Curricula et des Innovations Pédagogiques, ministère chargé de la formation professionnelle et technique, Sénégal. Version 0.1, en essai depuis octobre 2026.</p>
+  <p><strong>Oumar SALL</strong>, technopédagogue et Doctorant en Sciences de l'Éducation. Voir les <a href="https://oumarsall3.github.io/" style="color: var(--bleu);">autres réalisations</a> ou le <a href="https://github.com/oumarsall3/planificateur-apc" style="color: var(--bleu);">dépôt de présentation</a>.</p>
+</div>
+
+</main>
+</body>
+</html>
